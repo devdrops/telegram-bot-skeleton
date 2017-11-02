@@ -1,0 +1,19 @@
+{
+    "name": "devdrops/telegram-bot-skeleton",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Davi Marcondes Moreira",
+            "email": "davi.marcondes.moreira@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "@stable",
+        "irazasyed/telegram-bot-sdk": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "BotSkeleton\\": "src/BotSkeleton"
+        }
+    }
+}
