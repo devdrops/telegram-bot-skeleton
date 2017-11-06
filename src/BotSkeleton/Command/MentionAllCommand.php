@@ -33,7 +33,9 @@ class MentionAllCommand extends Command
 
         $this->replyWithMessage([
             'text' => print_r(get_class_methods(
-                $this->getTelegram()->getChatMembersCount()
+                $this->getTelegram()->getChatAdministrators([
+                    'chat_id' => $this->getTelegram()->getChat()->getId()
+                ])
             ), true),
         ]);
     }
