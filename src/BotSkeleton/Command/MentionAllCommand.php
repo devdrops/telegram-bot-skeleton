@@ -25,14 +25,14 @@ class MentionAllCommand extends Command
             'text' => 'Here we go!',
         ]);
 
-        $contents = print_r($arguments, true);
+        /*$contents = print_r($arguments, true);
         $pdoConnection = new \PDO(getenv('DB_REQUEST_LOGS'));
         $pdoConnection->query(
             "INSERT INTO requests (data) VALUES ('$contents');"
-        );
+        );*/
 
         $this->replyWithMessage([
-            'text' => print_r($arguments, true),
+            'text' => print_r(get_class_methods($this->getTelegram()), true),
         ]);
     }
 }
