@@ -25,20 +25,23 @@ class MentionAllCommand extends Command
             'text' => 'Here we go!',
         ]);
 
-        /*$contents = print_r($arguments, true);
+        $update = $this->getTelegram()->getWebhookUpdates();
+        $contents = print_r(
+            $update->getMessage()->getChat()->getId(),
+            true
+        );
         $pdoConnection = new \PDO(getenv('DB_REQUEST_LOGS'));
         $pdoConnection->query(
             "INSERT INTO requests (data) VALUES ('$contents');"
-        );*/
+        );
 
-        $update = $this->getTelegram()->getWebhookUpdates();
 
         $this->replyWithMessage([
-            'text' => print_r(get_class_methods(
+            'text' => print_r(
                 $this->getTelegram()->getChatAdministrators([
                     'chat_id' => $update->getMessage()->getChat()->getId()
                 ])
-            ), true),
+            , true),
         ]);
     }
 }
