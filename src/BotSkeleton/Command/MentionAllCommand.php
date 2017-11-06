@@ -32,7 +32,9 @@ class MentionAllCommand extends Command
         );*/
 
         $this->replyWithMessage([
-            'text' => print_r(get_class_methods($this->getTelegram()), true),
+            'text' => print_r(get_class_methods(
+                $this->getTelegram()->getChatMembersCount()
+            ), true),
         ]);
     }
 }
